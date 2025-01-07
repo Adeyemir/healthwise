@@ -1,4 +1,4 @@
-import { Activity, Brain, ChartLineUp, Shield } from "lucide-react";
+import { Activity, Brain, ChartLine, Shield } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const features = [
@@ -15,7 +15,7 @@ const features = [
   {
     title: "Data Analytics",
     description: "Comprehensive insights and trends to help you make informed decisions.",
-    icon: ChartLineUp,
+    icon: ChartLine,
   },
   {
     title: "Secure & Private",
