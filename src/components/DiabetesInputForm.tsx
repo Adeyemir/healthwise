@@ -8,8 +8,10 @@ import { PersonalInfoFields } from "./diabetes-form/PersonalInfoFields";
 import { HealthMetricsFields } from "./diabetes-form/HealthMetricsFields";
 import { LifestyleFields } from "./diabetes-form/LifestyleFields";
 import { formSchema, calculateBMI } from "./diabetes-form/schema";
+import { useNavigate } from "react-router-dom";
 
 export function DiabetesInputForm() {
+  const navigate = useNavigate();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -33,6 +35,7 @@ export function DiabetesInputForm() {
       title: "Health Information Submitted!",
       description: `Your BMI is ${bmi}. We'll analyze your comprehensive health data for diabetes risk assessment.`,
     });
+    navigate('/meal-plan');
   }
 
   return (
