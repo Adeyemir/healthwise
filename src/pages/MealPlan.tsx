@@ -2,6 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { CookingPot, Carrot, Activity, Dumbbell, Coffee, PersonStanding } from "lucide-react";
+import { DiabetesRiskChart } from "@/components/DiabetesRiskChart";
 
 const getMealPlan = (bmi: number, lifestyle: string, physicalActivity: string) => {
   if (bmi >= 30) {
@@ -145,7 +146,13 @@ const MealPlan = () => {
     weight: "70",
     lifestyle: "moderate",
     physicalActivity: "light",
-    comorbidities: "none"
+    comorbidities: "none",
+    diabetesRisk: 0,
+    diabetesTypes: {
+      type1: 20,
+      type2: 25,
+      prediabetes: 15,
+    }
   };
 
   const bmi = parseFloat(formData.weight) / ((parseFloat(formData.height) / 100) ** 2);
@@ -159,6 +166,11 @@ const MealPlan = () => {
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Your Personalized Health Journey</h1>
           <p className="text-lg text-gray-600">Tailored nutrition and activity recommendations based on your profile</p>
         </div>
+
+        <DiabetesRiskChart 
+          risk={formData.diabetesRisk} 
+          types={formData.diabetesTypes}
+        />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <Card className="bg-gradient-to-br from-green-50 to-white hover:shadow-lg transition-shadow duration-300">

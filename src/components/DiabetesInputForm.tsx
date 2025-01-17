@@ -9,6 +9,7 @@ import { HealthMetricsFields } from "./diabetes-form/HealthMetricsFields";
 import { LifestyleFields } from "./diabetes-form/LifestyleFields";
 import { formSchema, calculateBMI } from "./diabetes-form/schema";
 import { useNavigate } from "react-router-dom";
+import { calculateDiabetesRisk, getDiabetesTypes } from "@/utils/diabetesRiskCalculator";
 
 export function DiabetesInputForm() {
   const navigate = useNavigate();
@@ -31,11 +32,31 @@ export function DiabetesInputForm() {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     const bmi = calculateBMI(values.height, values.weight);
+    const risk = calculateDiabetesRisk({
+      age: values.age,
+      bmi,
+      bloodSugar: values.bloodSugar,
+      familyHistory: values.familyHistory,
+      physicalActivity: values.physicalActivity,
+      lifestyle: values.lifestyle,
+      comorbidities: values.comorbidities,
+    });
+    
+    const types = getDiabetesTypes(values.bloodSugar, values.age);
+    
     toast({
       title: "Health Information Submitted!",
       description: `Your BMI is ${bmi}. We'll analyze your comprehensive health data for diabetes risk assessment.`,
     });
-    navigate('/meal-plan', { state: values });
+    
+    navigate('/meal-plan', { 
+      state: {
+        ...values,
+        bmi,
+        diabetesRisk: risk,
+        diabetesTypes: types,
+      }
+    });
   }
 
   return (
