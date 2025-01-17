@@ -1,7 +1,7 @@
 interface RiskFactors {
-  age: string;
+  age: number;
   bmi: number;
-  bloodSugar: string;
+  bloodSugar: number;
   familyHistory: string;
   physicalActivity: string;
   lifestyle: string;
@@ -12,18 +12,16 @@ export const calculateDiabetesRisk = (factors: RiskFactors) => {
   let risk = 0;
   
   // Age risk
-  const age = parseInt(factors.age);
-  if (age > 45) risk += 20;
-  else if (age > 35) risk += 10;
+  if (factors.age > 45) risk += 20;
+  else if (factors.age > 35) risk += 10;
 
   // BMI risk
   if (factors.bmi >= 30) risk += 20;
   else if (factors.bmi >= 25) risk += 10;
 
   // Blood sugar risk
-  const bloodSugar = parseInt(factors.bloodSugar);
-  if (bloodSugar >= 126) risk += 25;
-  else if (bloodSugar >= 100) risk += 15;
+  if (factors.bloodSugar >= 126) risk += 25;
+  else if (factors.bloodSugar >= 100) risk += 15;
 
   // Family history risk
   if (factors.familyHistory.toLowerCase().includes('parent') || 
@@ -54,13 +52,10 @@ export const calculateDiabetesRisk = (factors: RiskFactors) => {
   return Math.min(Math.max(risk, 0), 100);
 };
 
-export const getDiabetesTypes = (bloodSugar: string, age: string) => {
-  const bs = parseInt(bloodSugar);
-  const ageNum = parseInt(age);
-  
+export const getDiabetesTypes = (bloodSugar: number, age: number) => {
   return {
-    type1: ageNum < 30 && bs >= 126 ? 60 : 20,
-    type2: ageNum >= 30 && bs >= 126 ? 70 : 25,
-    prediabetes: bs >= 100 && bs < 126 ? 80 : 15,
+    type1: age < 30 && bloodSugar >= 126 ? 60 : 20,
+    type2: age >= 30 && bloodSugar >= 126 ? 70 : 25,
+    prediabetes: bloodSugar >= 100 && bloodSugar < 126 ? 80 : 15,
   };
 };

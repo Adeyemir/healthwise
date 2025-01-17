@@ -32,17 +32,20 @@ export function DiabetesInputForm() {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     const bmi = calculateBMI(values.height, values.weight);
+    const age = parseFloat(values.age);
+    const bloodSugar = parseFloat(values.bloodSugar);
+    
     const risk = calculateDiabetesRisk({
-      age: parseFloat(values.age),
+      age,
       bmi,
-      bloodSugar: parseFloat(values.bloodSugar),
+      bloodSugar,
       familyHistory: values.familyHistory,
       physicalActivity: values.physicalActivity,
       lifestyle: values.lifestyle,
       comorbidities: values.comorbidities,
     });
     
-    const types = getDiabetesTypes(parseFloat(values.bloodSugar), parseFloat(values.age));
+    const types = getDiabetesTypes(bloodSugar, age);
     
     toast({
       title: "Health Information Submitted!",
