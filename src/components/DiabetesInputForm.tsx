@@ -35,7 +35,7 @@ export function DiabetesInputForm() {
       title: "Health Information Submitted!",
       description: `Your BMI is ${bmi}. We'll analyze your comprehensive health data for diabetes risk assessment.`,
     });
-    navigate('/meal-plan');
+    navigate('/meal-plan', { state: values });
   }
 
   return (
