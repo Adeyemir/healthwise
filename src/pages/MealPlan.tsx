@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { CookingPot, Carrot, Activity, Dumbbell, Coffee, Walking } from "lucide-react";
+import { CookingPot, Carrot, Activity, Dumbbell, Coffee, PersonStanding } from "lucide-react";
 
 const MealPlan = () => {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ const MealPlan = () => {
           <p className="text-lg text-gray-600">Tailored nutrition and activity recommendations based on your profile</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <Card className="bg-gradient-to-br from-green-50 to-white hover:shadow-lg transition-shadow duration-300">
             <CardHeader>
               <div className="flex items-center gap-2">
@@ -73,21 +73,21 @@ const MealPlan = () => {
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-blue-50 to-white hover:shadow-lg transition-shadow duration-300">
-            <CardHeader>
-              <div className="flex items-center gap-2">
-                <Activity className="w-6 h-6 text-blue-600" />
-                <CardTitle>Physical Activity Plan</CardTitle>
-              </div>
-              <CardDescription>Activities to help manage blood sugar levels</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-6">
-                <div className="border-l-4 border-blue-500 pl-4 py-4 hover:bg-blue-50 transition-colors rounded-r-lg">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Walking className="w-5 h-5 text-blue-600" />
-                    <h4 className="font-semibold">Aerobic Exercise</h4>
-                  </div>
+        <Card className="bg-gradient-to-br from-blue-50 to-white hover:shadow-lg transition-shadow duration-300">
+          <CardHeader>
+            <div className="flex items-center gap-2">
+              <Activity className="w-6 h-6 text-blue-600" />
+              <CardTitle>Physical Activity Plan</CardTitle>
+            </div>
+            <CardDescription>Activities to help manage blood sugar levels</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-6">
+              <div className="border-l-4 border-blue-500 pl-4 py-4 hover:bg-blue-50 transition-colors rounded-r-lg">
+                <div className="flex items-center gap-2 mb-2">
+                  <PersonStanding className="w-5 h-5 text-blue-600" />
+                  <h4 className="font-semibold">Aerobic Exercise</h4>
+                </div>
                   <p className="text-sm text-gray-600 mb-2">30 minutes, 5 days/week</p>
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li className="flex items-center gap-2">
@@ -103,7 +103,7 @@ const MealPlan = () => {
                       Cycling on flat terrain
                     </li>
                   </ul>
-                </div>
+              </div>
 
                 <div className="border-l-4 border-blue-500 pl-4 py-4 hover:bg-blue-50 transition-colors rounded-r-lg">
                   <div className="flex items-center gap-2 mb-2">
@@ -147,20 +147,19 @@ const MealPlan = () => {
                     </li>
                   </ul>
                 </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
 
-        <div className="text-center">
-          <Button 
-            onClick={() => navigate('/')}
-            variant="outline"
-            className="hover:bg-gray-100"
-          >
-            Back to Assessment
-          </Button>
-        </div>
+      <div className="text-center">
+        <Button 
+          onClick={() => navigate('/')}
+          variant="outline"
+          className="hover:bg-gray-100"
+        >
+          Back to Assessment
+        </Button>
       </div>
     </div>
   );
