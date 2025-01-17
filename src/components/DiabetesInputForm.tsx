@@ -31,7 +31,7 @@ export function DiabetesInputForm() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    const bmi = calculateBMI(values.height, values.weight);
+    const bmi = calculateBMI(parseFloat(values.height), parseFloat(values.weight));
     const age = parseFloat(values.age);
     const bloodSugar = parseFloat(values.bloodSugar);
     
