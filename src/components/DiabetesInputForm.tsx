@@ -1,3 +1,4 @@
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -31,13 +32,13 @@ export function DiabetesInputForm() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    const bmi = calculateBMI(parseFloat(values.height), parseFloat(values.weight));
+    const bmi = calculateBMI(values.height, values.weight);
     const age = parseFloat(values.age);
     const bloodSugar = parseFloat(values.bloodSugar);
     
     const risk = calculateDiabetesRisk({
       age,
-      bmi,
+      bmi: parseFloat(bmi),
       bloodSugar,
       familyHistory: values.familyHistory,
       physicalActivity: values.physicalActivity,
