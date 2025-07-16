@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SweetBalance Hub - Diabetes Management</title>
+    <meta name="description" content="Comprehensive diabetes management and meal planning platform">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Take Control of Your Diabetes Journey</h1>
+                <p class="hero-subtitle">Personalized meal planning, health tracking, and comprehensive diabetes management in one platform</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary">Get Started</button>
+                    <button class="btn btn-secondary">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title">Comprehensive Diabetes Management</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Health Tracking</h3>
+                    <p>Monitor blood sugar, insulin levels, and vital signs with comprehensive analytics</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🍽️</div>
+                    <h3>Meal Planning</h3>
+                    <p>Personalized meal recommendations based on your health metrics and preferences</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Risk Assessment</h3>
+                    <p>AI-powered diabetes risk evaluation with actionable insights and recommendations</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💊</div>
+                    <h3>Medication Management</h3>
+                    <p>Track medications, set reminders, and monitor treatment effectiveness</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Health Assessment Form -->
+    <section class="form-section">
+        <div class="container">
+            <div class="form-container">
+                <h2 class="form-title">Comprehensive Health Assessment</h2>
+                <form class="health-form" id="healthForm">
+                    <!-- Personal Information -->
+                    <div class="form-group-section">
+                        <h3 class="section-subtitle">Personal Information</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="age">Age (years)</label>
+                                <input type="number" id="age" name="age" placeholder="35" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="height">Height (cm)</label>
+                                <input type="number" id="height" name="height" placeholder="170" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="weight">Weight (kg)</label>
+                                <input type="number" id="weight" name="weight" placeholder="70" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Health Metrics -->
+                    <div class="form-group-section">
+                        <h3 class="section-subtitle">Health Metrics</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="bloodSugar">Blood Sugar Level (mg/dL)</label>
+                                <input type="number" id="bloodSugar" name="bloodSugar" placeholder="100" required>
+                                <small class="form-description">Fasting blood glucose level</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="insulinLevel">Insulin Level (μU/mL)</label>
+                                <input type="number" id="insulinLevel" name="insulinLevel" placeholder="15" required>
+                            </div>
+                            <div class="form-grid-two">
+                                <div class="form-group">
+                                    <label for="systolicBP">Systolic BP</label>
+                                    <input type="number" id="systolicBP" name="systolicBP" placeholder="120" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="diastolicBP">Diastolic BP</label>
+                                    <input type="number" id="diastolicBP" name="diastolicBP" placeholder="80" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lifestyle Factors -->
+                    <div class="form-group-section">
+                        <h3 class="section-subtitle">Lifestyle Factors</h3>
+                        <div class="form-group">
+                            <label for="physicalActivity">Physical Activity Level</label>
+                            <select id="physicalActivity" name="physicalActivity" required>
+                                <option value="">Select activity level</option>
+                                <option value="sedentary">Sedentary (Little to no exercise)</option>
+                                <option value="light">Light (1-3 days/week)</option>
+                                <option value="moderate">Moderate (3-5 days/week)</option>
+                                <option value="active">Active (6-7 days/week)</option>
+                                <option value="very_active">Very Active (Professional athlete)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="lifestyle">Lifestyle Factors</label>
+                            <select id="lifestyle" name="lifestyle" required>
+                                <option value="">Select lifestyle factors</option>
+                                <option value="healthy">Healthy diet and regular exercise</option>
+                                <option value="moderate">Balanced lifestyle with some exercise</option>
+                                <option value="sedentary">Sedentary with poor diet</option>
+                                <option value="smoker">Smoker</option>
+                                <option value="alcohol">Regular alcohol consumption</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="comorbidities">Co-morbidities</label>
+                            <select id="comorbidities" name="comorbidities" required>
+                                <option value="">Select existing conditions</option>
+                                <option value="none">None</option>
+                                <option value="hypertension">Hypertension</option>
+                                <option value="heart_disease">Heart Disease</option>
+                                <option value="obesity">Obesity</option>
+                                <option value="thyroid">Thyroid Disorder</option>
+                                <option value="multiple">Multiple Conditions</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="familyHistory">Family History of Diabetes</label>
+                            <textarea id="familyHistory" name="familyHistory" placeholder="Please describe any family history of diabetes (parents, siblings, etc.)" rows="4"></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-full">Submit Health Information</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">10,000+</div>
+                    <div class="stat-label">Users Helped</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Improved Health</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Support Available</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Meal Plans</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Transform Your Health?</h2>
+                <p class="cta-subtitle">Join thousands who have taken control of their diabetes journey</p>
+                <button class="btn btn-primary btn-large">Start Your Journey Today</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
